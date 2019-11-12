@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <title>登录</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	  <!--禁用缩放功能  maximum-scale=1.0, user-scalable=no" -->
+
+      <!-- 引入 Bootstrap -->
+      <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+	   <!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
+	   <script src="https://code.jquery.com/jquery.js"></script>
+	   <!-- 包括所有已编译的插件 -->
+	   <script src="/js/bootstrap.min.js"></script>
+
+<style type="text/css">
+	
+	 .container{
+		display:table;
+		height:100%;
+    }
+ 
+    .row{
+		display: table-cell;
+		vertical-align: middle;
+		
+    }
+    /* centered columns styles */
+    .row-centered {
+        text-align:center;
+    }
+	
+	.biaoti{
+		margin-left: -2%;
+		margin-top: 4%;
+		margin-bottom: 3%;
+	}
+	.col-sm-2{
+		margin-left: 20%;
+	}
+	.jizhu{
+		margin-left: -25%;
+	}
+	.col-sm-offset{
+		margin-left: 37%;
+	}
+	
+            
+	
+</style>
+
+   </head>
+   <body>
+    <div class="container">
+		<div class="row row-centered">
+				<h1 class="biaoti">登录</h1>
+				  
+				<form method="post" class="form-horizontal" role="form" id="loginFrom">
+					<div class="form-group">
+						<label for="phone" class="col-sm-2 control-label">账号</label>
+						<div class="col-lg-3">
+							<input type="text" class="form-control" id="phone" name="phone" placeholder="邮箱/手机/用户名">
+						</div>	
+					</div>
+					<div class="form-group">
+						<label for="password" class="col-sm-2 control-label">密码</label>
+						<div class="col-lg-3">
+							<input type="password" class="form-control" id="password" name="password" placeholder="请输入密码">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-10">
+							<div class="checkbox">
+								<label class="jizhu">
+									<input type="checkbox">记住密码
+								</label>
+								<label>忘记密码?</label>
+								<label>去注册</label>
+							</div>
+							
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-offset col-lg-3">
+							<button type="button" id="login" class="btn btn-default  btn-lg btn-block">登录</button>
+						</div>
+					</div>
+				</form>
+				
+				<div class="partner">
+					<h3>合作账号</h3>
+					<div class="list-inline">
+						<li><a href="#"><i class="am-icon-qq am-icon-sm"></i><span>QQ登录</span></a></li>
+						<li><a href="#"><i class="am-icon-weibo am-icon-sm"></i><span>微博登录</span> </a></li>
+						<li><a href="#"><i class="am-icon-weixin am-icon-sm"></i><span>微信登录</span> </a></li>
+					</div>
+				</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="/js/bootstrap.js"></script>
+	<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+
+   <script type="text/javascript">
+	   $(function () {
+		   //为按钮绑定事件
+		   $("#login").click(function () {
+
+			   var phone = $("#phone").val();
+			   var password = $("#password").val();
+
+			   if(phone.length == 0){
+					alert("请输入手机号")
+				   return;
+			   }
+			   if(password.length == 0){
+			   		alert("请输入密码")
+				   return;
+			   }
+			   $.ajax({
+				   url: "http://localhost:9090/user/check/Login",
+				   type: "post",
+				   data: {"phone": phone, "password": password},
+				   dataType: "json",
+				   success: function (data) {
+					   if(data.code == 0){
+						   window.location.href="http://localhost:9091/show/index";
+					   }else {
+						   alert(data.message);
+					   }
+				   },
+			   });
+		   })
+	   })
+
+	</script>
+
+
+   </body>
+</html>

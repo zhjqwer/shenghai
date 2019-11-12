@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.chuxin.mapper.BusinessExtendMapper" >
+  <resultMap id="BaseResultMap" type="com.chuxin.pojo.BusinessExtend" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="business_name" property="businessName" jdbcType="VARCHAR" />
+    <result column="business_price" property="businessPrice" jdbcType="DECIMAL" />
+    <result column="spare_one" property="spareOne" jdbcType="VARCHAR" />
+    <result column="spare_two" property="spareTwo" jdbcType="VARCHAR" />
+    <result column="register_time" property="registerTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="update_name" property="updateName" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.chuxin.pojo.BusinessExtend" extends="BaseResultMap" >
+    <result column="business_terms" property="businessTerms" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, business_name, business_price, spare_one, spare_two, register_time, update_time, 
+    update_name
+  </sql>
+  <sql id="Blob_Column_List" >
+    business_terms
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.chuxin.pojo.BusinessExtendExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from business_extend
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.chuxin.pojo.BusinessExtendExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from business_extend
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from business_extend
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from business_extend
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.chuxin.pojo.BusinessExtendExample" >
+    delete from business_extend
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.chuxin.pojo.BusinessExtend" >
+    insert into business_extend (id, business_name, business_price, 
+      spare_one, spare_two, register_time, 
+      update_time, update_name, business_terms
+      )
+    values (#{id,jdbcType=INTEGER}, #{businessName,jdbcType=VARCHAR}, #{businessPrice,jdbcType=DECIMAL}, 
+      #{spareOne,jdbcType=VARCHAR}, #{spareTwo,jdbcType=VARCHAR}, #{registerTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{updateName,jdbcType=INTEGER}, #{businessTerms,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.chuxin.pojo.BusinessExtend" >
+    insert into business_extend
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="businessName != null" >
+        business_name,
+      </if>
+      <if test="businessPrice != null" >
+        business_price,
+      </if>
+      <if test="spareOne != null" >
+        spare_one,
+      </if>
+      <if test="spareTwo != null" >
+        spare_two,
+      </if>
+      <if test="registerTime != null" >
+        register_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="updateName != null" >
+        update_name,
+      </if>
+      <if test="businessTerms != null" >
+        business_terms,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="businessName != null" >
+        #{businessName,jdbcType=VARCHAR},
+      </if>
+      <if test="businessPrice != null" >
+        #{businessPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="spareOne != null" >
+        #{spareOne,jdbcType=VARCHAR},
+      </if>
+      <if test="spareTwo != null" >
+        #{spareTwo,jdbcType=VARCHAR},
+      </if>
+      <if test="registerTime != null" >
+        #{registerTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateName != null" >
+        #{updateName,jdbcType=INTEGER},
+      </if>
+      <if test="businessTerms != null" >
+        #{businessTerms,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.chuxin.pojo.BusinessExtendExample" resultType="java.lang.Integer" >
+    select count(*) from business_extend
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update business_extend
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.businessName != null" >
+        business_name = #{record.businessName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.businessPrice != null" >
+        business_price = #{record.businessPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="record.spareOne != null" >
+        spare_one = #{record.spareOne,jdbcType=VARCHAR},
+      </if>
+      <if test="record.spareTwo != null" >
+        spare_two = #{record.spareTwo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.registerTime != null" >
+        register_time = #{record.registerTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateTime != null" >
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateName != null" >
+        update_name = #{record.updateName,jdbcType=INTEGER},
+      </if>
+      <if test="record.businessTerms != null" >
+        business_terms = #{record.businessTerms,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update business_extend
+    set id = #{record.id,jdbcType=INTEGER},
+      business_name = #{record.businessName,jdbcType=VARCHAR},
+      business_price = #{record.businessPrice,jdbcType=DECIMAL},
+      spare_one = #{record.spareOne,jdbcType=VARCHAR},
+      spare_two = #{record.spareTwo,jdbcType=VARCHAR},
+      register_time = #{record.registerTime,jdbcType=TIMESTAMP},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      update_name = #{record.updateName,jdbcType=INTEGER},
+      business_terms = #{record.businessTerms,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update business_extend
+    set id = #{record.id,jdbcType=INTEGER},
+      business_name = #{record.businessName,jdbcType=VARCHAR},
+      business_price = #{record.businessPrice,jdbcType=DECIMAL},
+      spare_one = #{record.spareOne,jdbcType=VARCHAR},
+      spare_two = #{record.spareTwo,jdbcType=VARCHAR},
+      register_time = #{record.registerTime,jdbcType=TIMESTAMP},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      update_name = #{record.updateName,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.chuxin.pojo.BusinessExtend" >
+    update business_extend
+    <set >
+      <if test="businessName != null" >
+        business_name = #{businessName,jdbcType=VARCHAR},
+      </if>
+      <if test="businessPrice != null" >
+        business_price = #{businessPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="spareOne != null" >
+        spare_one = #{spareOne,jdbcType=VARCHAR},
+      </if>
+      <if test="spareTwo != null" >
+        spare_two = #{spareTwo,jdbcType=VARCHAR},
+      </if>
+      <if test="registerTime != null" >
+        register_time = #{registerTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateName != null" >
+        update_name = #{updateName,jdbcType=INTEGER},
+      </if>
+      <if test="businessTerms != null" >
+        business_terms = #{businessTerms,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.chuxin.pojo.BusinessExtend" >
+    update business_extend
+    set business_name = #{businessName,jdbcType=VARCHAR},
+      business_price = #{businessPrice,jdbcType=DECIMAL},
+      spare_one = #{spareOne,jdbcType=VARCHAR},
+      spare_two = #{spareTwo,jdbcType=VARCHAR},
+      register_time = #{registerTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      update_name = #{updateName,jdbcType=INTEGER},
+      business_terms = #{businessTerms,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.chuxin.pojo.BusinessExtend" >
+    update business_extend
+    set business_name = #{businessName,jdbcType=VARCHAR},
+      business_price = #{businessPrice,jdbcType=DECIMAL},
+      spare_one = #{spareOne,jdbcType=VARCHAR},
+      spare_two = #{spareTwo,jdbcType=VARCHAR},
+      register_time = #{registerTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      update_name = #{updateName,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

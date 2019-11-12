@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.chuxin.mapper.OrderMasterMapper" >
+  <resultMap id="BaseResultMap" type="com.chuxin.pojo.OrderMaster" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="order_number" property="orderNumber" jdbcType="INTEGER" />
+    <result column="service_id" property="serviceId" jdbcType="INTEGER" />
+    <result column="order_status" property="orderStatus" jdbcType="INTEGER" />
+    <result column="product_count" property="productCount" jdbcType="INTEGER" />
+    <result column="product_total_price" property="productTotalPrice" jdbcType="DECIMAL" />
+    <result column="order_amount_total" property="orderAmountTotal" jdbcType="DECIMAL" />
+    <result column="invoice" property="invoice" jdbcType="CHAR" />
+    <result column="invoice_id" property="invoiceId" jdbcType="INTEGER" />
+    <result column="pay_time" property="payTime" jdbcType="TIMESTAMP" />
+    <result column="pay_channel" property="payChannel" jdbcType="VARCHAR" />
+    <result column="out_trade_no" property="outTradeNo" jdbcType="VARCHAR" />
+    <result column="order_time" property="orderTime" jdbcType="TIMESTAMP" />
+    <result column="group_id" property="groupId" jdbcType="INTEGER" />
+    <result column="user_remarks" property="userRemarks" jdbcType="VARCHAR" />
+    <result column="order_settlement_time" property="orderSettlementTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, order_number, service_id, order_status, product_count, product_total_price, order_amount_total, 
+    invoice, invoice_id, pay_time, pay_channel, out_trade_no, order_time, group_id, user_remarks, 
+    order_settlement_time
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.chuxin.pojo.OrderMasterExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from order_master
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from order_master
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from order_master
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.chuxin.pojo.OrderMasterExample" >
+    delete from order_master
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.chuxin.pojo.OrderMaster" >
+    insert into order_master (id, order_number, service_id, 
+      order_status, product_count, product_total_price, 
+      order_amount_total, invoice, invoice_id, 
+      pay_time, pay_channel, out_trade_no, 
+      order_time, group_id, user_remarks, 
+      order_settlement_time)
+    values (#{id,jdbcType=INTEGER}, #{orderNumber,jdbcType=INTEGER}, #{serviceId,jdbcType=INTEGER}, 
+      #{orderStatus,jdbcType=INTEGER}, #{productCount,jdbcType=INTEGER}, #{productTotalPrice,jdbcType=DECIMAL}, 
+      #{orderAmountTotal,jdbcType=DECIMAL}, #{invoice,jdbcType=CHAR}, #{invoiceId,jdbcType=INTEGER}, 
+      #{payTime,jdbcType=TIMESTAMP}, #{payChannel,jdbcType=VARCHAR}, #{outTradeNo,jdbcType=VARCHAR}, 
+      #{orderTime,jdbcType=TIMESTAMP}, #{groupId,jdbcType=INTEGER}, #{userRemarks,jdbcType=VARCHAR}, 
+      #{orderSettlementTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.chuxin.pojo.OrderMaster" >
+    insert into order_master
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="orderNumber != null" >
+        order_number,
+      </if>
+      <if test="serviceId != null" >
+        service_id,
+      </if>
+      <if test="orderStatus != null" >
+        order_status,
+      </if>
+      <if test="productCount != null" >
+        product_count,
+      </if>
+      <if test="productTotalPrice != null" >
+        product_total_price,
+      </if>
+      <if test="orderAmountTotal != null" >
+        order_amount_total,
+      </if>
+      <if test="invoice != null" >
+        invoice,
+      </if>
+      <if test="invoiceId != null" >
+        invoice_id,
+      </if>
+      <if test="payTime != null" >
+        pay_time,
+      </if>
+      <if test="payChannel != null" >
+        pay_channel,
+      </if>
+      <if test="outTradeNo != null" >
+        out_trade_no,
+      </if>
+      <if test="orderTime != null" >
+        order_time,
+      </if>
+      <if test="groupId != null" >
+        group_id,
+      </if>
+      <if test="userRemarks != null" >
+        user_remarks,
+      </if>
+      <if test="orderSettlementTime != null" >
+        order_settlement_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="orderNumber != null" >
+        #{orderNumber,jdbcType=INTEGER},
+      </if>
+      <if test="serviceId != null" >
+        #{serviceId,jdbcType=INTEGER},
+      </if>
+      <if test="orderStatus != null" >
+        #{orderStatus,jdbcType=INTEGER},
+      </if>
+      <if test="productCount != null" >
+        #{productCount,jdbcType=INTEGER},
+      </if>
+      <if test="productTotalPrice != null" >
+        #{productTotalPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="orderAmountTotal != null" >
+        #{orderAmountTotal,jdbcType=DECIMAL},
+      </if>
+      <if test="invoice != null" >
+        #{invoice,jdbcType=CHAR},
+      </if>
+      <if test="invoiceId != null" >
+        #{invoiceId,jdbcType=INTEGER},
+      </if>
+      <if test="payTime != null" >
+        #{payTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="payChannel != null" >
+        #{payChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="outTradeNo != null" >
+        #{outTradeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="orderTime != null" >
+        #{orderTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="groupId != null" >
+        #{groupId,jdbcType=INTEGER},
+      </if>
+      <if test="userRemarks != null" >
+        #{userRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="orderSettlementTime != null" >
+        #{orderSettlementTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.chuxin.pojo.OrderMasterExample" resultType="java.lang.Integer" >
+    select count(*) from order_master
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update order_master
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.orderNumber != null" >
+        order_number = #{record.orderNumber,jdbcType=INTEGER},
+      </if>
+      <if test="record.serviceId != null" >
+        service_id = #{record.serviceId,jdbcType=INTEGER},
+      </if>
+      <if test="record.orderStatus != null" >
+        order_status = #{record.orderStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.productCount != null" >
+        product_count = #{record.productCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.productTotalPrice != null" >
+        product_total_price = #{record.productTotalPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="record.orderAmountTotal != null" >
+        order_amount_total = #{record.orderAmountTotal,jdbcType=DECIMAL},
+      </if>
+      <if test="record.invoice != null" >
+        invoice = #{record.invoice,jdbcType=CHAR},
+      </if>
+      <if test="record.invoiceId != null" >
+        invoice_id = #{record.invoiceId,jdbcType=INTEGER},
+      </if>
+      <if test="record.payTime != null" >
+        pay_time = #{record.payTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.payChannel != null" >
+        pay_channel = #{record.payChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.outTradeNo != null" >
+        out_trade_no = #{record.outTradeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.orderTime != null" >
+        order_time = #{record.orderTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.groupId != null" >
+        group_id = #{record.groupId,jdbcType=INTEGER},
+      </if>
+      <if test="record.userRemarks != null" >
+        user_remarks = #{record.userRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="record.orderSettlementTime != null" >
+        order_settlement_time = #{record.orderSettlementTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update order_master
+    set id = #{record.id,jdbcType=INTEGER},
+      order_number = #{record.orderNumber,jdbcType=INTEGER},
+      service_id = #{record.serviceId,jdbcType=INTEGER},
+      order_status = #{record.orderStatus,jdbcType=INTEGER},
+      product_count = #{record.productCount,jdbcType=INTEGER},
+      product_total_price = #{record.productTotalPrice,jdbcType=DECIMAL},
+      order_amount_total = #{record.orderAmountTotal,jdbcType=DECIMAL},
+      invoice = #{record.invoice,jdbcType=CHAR},
+      invoice_id = #{record.invoiceId,jdbcType=INTEGER},
+      pay_time = #{record.payTime,jdbcType=TIMESTAMP},
+      pay_channel = #{record.payChannel,jdbcType=VARCHAR},
+      out_trade_no = #{record.outTradeNo,jdbcType=VARCHAR},
+      order_time = #{record.orderTime,jdbcType=TIMESTAMP},
+      group_id = #{record.groupId,jdbcType=INTEGER},
+      user_remarks = #{record.userRemarks,jdbcType=VARCHAR},
+      order_settlement_time = #{record.orderSettlementTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.chuxin.pojo.OrderMaster" >
+    update order_master
+    <set >
+      <if test="orderNumber != null" >
+        order_number = #{orderNumber,jdbcType=INTEGER},
+      </if>
+      <if test="serviceId != null" >
+        service_id = #{serviceId,jdbcType=INTEGER},
+      </if>
+      <if test="orderStatus != null" >
+        order_status = #{orderStatus,jdbcType=INTEGER},
+      </if>
+      <if test="productCount != null" >
+        product_count = #{productCount,jdbcType=INTEGER},
+      </if>
+      <if test="productTotalPrice != null" >
+        product_total_price = #{productTotalPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="orderAmountTotal != null" >
+        order_amount_total = #{orderAmountTotal,jdbcType=DECIMAL},
+      </if>
+      <if test="invoice != null" >
+        invoice = #{invoice,jdbcType=CHAR},
+      </if>
+      <if test="invoiceId != null" >
+        invoice_id = #{invoiceId,jdbcType=INTEGER},
+      </if>
+      <if test="payTime != null" >
+        pay_time = #{payTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="payChannel != null" >
+        pay_channel = #{payChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="outTradeNo != null" >
+        out_trade_no = #{outTradeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="orderTime != null" >
+        order_time = #{orderTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="groupId != null" >
+        group_id = #{groupId,jdbcType=INTEGER},
+      </if>
+      <if test="userRemarks != null" >
+        user_remarks = #{userRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="orderSettlementTime != null" >
+        order_settlement_time = #{orderSettlementTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.chuxin.pojo.OrderMaster" >
+    update order_master
+    set order_number = #{orderNumber,jdbcType=INTEGER},
+      service_id = #{serviceId,jdbcType=INTEGER},
+      order_status = #{orderStatus,jdbcType=INTEGER},
+      product_count = #{productCount,jdbcType=INTEGER},
+      product_total_price = #{productTotalPrice,jdbcType=DECIMAL},
+      order_amount_total = #{orderAmountTotal,jdbcType=DECIMAL},
+      invoice = #{invoice,jdbcType=CHAR},
+      invoice_id = #{invoiceId,jdbcType=INTEGER},
+      pay_time = #{payTime,jdbcType=TIMESTAMP},
+      pay_channel = #{payChannel,jdbcType=VARCHAR},
+      out_trade_no = #{outTradeNo,jdbcType=VARCHAR},
+      order_time = #{orderTime,jdbcType=TIMESTAMP},
+      group_id = #{groupId,jdbcType=INTEGER},
+      user_remarks = #{userRemarks,jdbcType=VARCHAR},
+      order_settlement_time = #{orderSettlementTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

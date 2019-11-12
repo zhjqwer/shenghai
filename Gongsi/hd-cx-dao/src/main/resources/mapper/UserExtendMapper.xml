@@ -1,0 +1,605 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.chuxin.mapper.UserExtendMapper" >
+  <resultMap id="BaseResultMap" type="com.chuxin.pojo.UserExtend" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="u_id" property="uId" jdbcType="INTEGER" />
+    <result column="real_name" property="realName" jdbcType="VARCHAR" />
+    <result column="id_card" property="idCard" jdbcType="VARCHAR" />
+    <result column="id_card_img_frontal" property="idCardImgFrontal" jdbcType="VARCHAR" />
+    <result column="id_card_img_back" property="idCardImgBack" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="VARCHAR" />
+    <result column="birthday" property="birthday" jdbcType="DATE" />
+    <result column="grade" property="grade" jdbcType="INTEGER" />
+    <result column="certificate_img_frontal" property="certificateImgFrontal" jdbcType="VARCHAR" />
+    <result column="certificate_img_back" property="certificateImgBack" jdbcType="VARCHAR" />
+    <result column="ship_id" property="shipId" jdbcType="INTEGER" />
+    <result column="comment_id" property="commentId" jdbcType="INTEGER" />
+    <result column="driving_license_id" property="drivingLicenseId" jdbcType="VARCHAR" />
+    <result column="driving_license_img_frontal" property="drivingLicenseImgFrontal" jdbcType="VARCHAR" />
+    <result column="driving_license_img_back" property="drivingLicenseImgBack" jdbcType="VARCHAR" />
+    <result column="driving_license_start_time" property="drivingLicenseStartTime" jdbcType="DATE" />
+    <result column="driving_license_end_time" property="drivingLicenseEndTime" jdbcType="DATE" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="spare_one" property="spareOne" jdbcType="VARCHAR" />
+    <result column="spare_two" property="spareTwo" jdbcType="VARCHAR" />
+    <result column="register_time" property="registerTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="update_name" property="updateName" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, u_id, real_name, id_card, id_card_img_frontal, id_card_img_back, sex, birthday, 
+    grade, certificate_img_frontal, certificate_img_back, ship_id, comment_id, driving_license_id, 
+    driving_license_img_frontal, driving_license_img_back, driving_license_start_time, 
+    driving_license_end_time, remarks, spare_one, spare_two, register_time, update_time, 
+    update_name
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.chuxin.pojo.UserExtendExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from user_extend
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from user_extend
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from user_extend
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.chuxin.pojo.UserExtendExample" >
+    delete from user_extend
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.chuxin.pojo.UserExtend" >
+    insert into user_extend (id, u_id, real_name, 
+      id_card, id_card_img_frontal, id_card_img_back, 
+      sex, birthday, grade, 
+      certificate_img_frontal, certificate_img_back, 
+      ship_id, comment_id, driving_license_id, 
+      driving_license_img_frontal, driving_license_img_back, 
+      driving_license_start_time, driving_license_end_time, 
+      remarks, spare_one, spare_two, 
+      register_time, update_time, update_name
+      )
+    values (#{id,jdbcType=INTEGER}, #{uId,jdbcType=INTEGER}, #{realName,jdbcType=VARCHAR}, 
+      #{idCard,jdbcType=VARCHAR}, #{idCardImgFrontal,jdbcType=VARCHAR}, #{idCardImgBack,jdbcType=VARCHAR}, 
+      #{sex,jdbcType=VARCHAR}, #{birthday,jdbcType=DATE}, #{grade,jdbcType=INTEGER}, 
+      #{certificateImgFrontal,jdbcType=VARCHAR}, #{certificateImgBack,jdbcType=VARCHAR}, 
+      #{shipId,jdbcType=INTEGER}, #{commentId,jdbcType=INTEGER}, #{drivingLicenseId,jdbcType=VARCHAR}, 
+      #{drivingLicenseImgFrontal,jdbcType=VARCHAR}, #{drivingLicenseImgBack,jdbcType=VARCHAR}, 
+      #{drivingLicenseStartTime,jdbcType=DATE}, #{drivingLicenseEndTime,jdbcType=DATE}, 
+      #{remarks,jdbcType=VARCHAR}, #{spareOne,jdbcType=VARCHAR}, #{spareTwo,jdbcType=VARCHAR}, 
+      #{registerTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{updateName,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.chuxin.pojo.UserExtend" >
+    insert into user_extend
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="uId != null" >
+        u_id,
+      </if>
+      <if test="realName != null" >
+        real_name,
+      </if>
+      <if test="idCard != null" >
+        id_card,
+      </if>
+      <if test="idCardImgFrontal != null" >
+        id_card_img_frontal,
+      </if>
+      <if test="idCardImgBack != null" >
+        id_card_img_back,
+      </if>
+      <if test="sex != null" >
+        sex,
+      </if>
+      <if test="birthday != null" >
+        birthday,
+      </if>
+      <if test="grade != null" >
+        grade,
+      </if>
+      <if test="certificateImgFrontal != null" >
+        certificate_img_frontal,
+      </if>
+      <if test="certificateImgBack != null" >
+        certificate_img_back,
+      </if>
+      <if test="shipId != null" >
+        ship_id,
+      </if>
+      <if test="commentId != null" >
+        comment_id,
+      </if>
+      <if test="drivingLicenseId != null" >
+        driving_license_id,
+      </if>
+      <if test="drivingLicenseImgFrontal != null" >
+        driving_license_img_frontal,
+      </if>
+      <if test="drivingLicenseImgBack != null" >
+        driving_license_img_back,
+      </if>
+      <if test="drivingLicenseStartTime != null" >
+        driving_license_start_time,
+      </if>
+      <if test="drivingLicenseEndTime != null" >
+        driving_license_end_time,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="spareOne != null" >
+        spare_one,
+      </if>
+      <if test="spareTwo != null" >
+        spare_two,
+      </if>
+      <if test="registerTime != null" >
+        register_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="updateName != null" >
+        update_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="uId != null" >
+        #{uId,jdbcType=INTEGER},
+      </if>
+      <if test="realName != null" >
+        #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="idCard != null" >
+        #{idCard,jdbcType=VARCHAR},
+      </if>
+      <if test="idCardImgFrontal != null" >
+        #{idCardImgFrontal,jdbcType=VARCHAR},
+      </if>
+      <if test="idCardImgBack != null" >
+        #{idCardImgBack,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null" >
+        #{birthday,jdbcType=DATE},
+      </if>
+      <if test="grade != null" >
+        #{grade,jdbcType=INTEGER},
+      </if>
+      <if test="certificateImgFrontal != null" >
+        #{certificateImgFrontal,jdbcType=VARCHAR},
+      </if>
+      <if test="certificateImgBack != null" >
+        #{certificateImgBack,jdbcType=VARCHAR},
+      </if>
+      <if test="shipId != null" >
+        #{shipId,jdbcType=INTEGER},
+      </if>
+      <if test="commentId != null" >
+        #{commentId,jdbcType=INTEGER},
+      </if>
+      <if test="drivingLicenseId != null" >
+        #{drivingLicenseId,jdbcType=VARCHAR},
+      </if>
+      <if test="drivingLicenseImgFrontal != null" >
+        #{drivingLicenseImgFrontal,jdbcType=VARCHAR},
+      </if>
+      <if test="drivingLicenseImgBack != null" >
+        #{drivingLicenseImgBack,jdbcType=VARCHAR},
+      </if>
+      <if test="drivingLicenseStartTime != null" >
+        #{drivingLicenseStartTime,jdbcType=DATE},
+      </if>
+      <if test="drivingLicenseEndTime != null" >
+        #{drivingLicenseEndTime,jdbcType=DATE},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="spareOne != null" >
+        #{spareOne,jdbcType=VARCHAR},
+      </if>
+      <if test="spareTwo != null" >
+        #{spareTwo,jdbcType=VARCHAR},
+      </if>
+      <if test="registerTime != null" >
+        #{registerTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateName != null" >
+        #{updateName,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.chuxin.pojo.UserExtendExample" resultType="java.lang.Integer" >
+    select count(*) from user_extend
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update user_extend
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.uId != null" >
+        u_id = #{record.uId,jdbcType=INTEGER},
+      </if>
+      <if test="record.realName != null" >
+        real_name = #{record.realName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.idCard != null" >
+        id_card = #{record.idCard,jdbcType=VARCHAR},
+      </if>
+      <if test="record.idCardImgFrontal != null" >
+        id_card_img_frontal = #{record.idCardImgFrontal,jdbcType=VARCHAR},
+      </if>
+      <if test="record.idCardImgBack != null" >
+        id_card_img_back = #{record.idCardImgBack,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sex != null" >
+        sex = #{record.sex,jdbcType=VARCHAR},
+      </if>
+      <if test="record.birthday != null" >
+        birthday = #{record.birthday,jdbcType=DATE},
+      </if>
+      <if test="record.grade != null" >
+        grade = #{record.grade,jdbcType=INTEGER},
+      </if>
+      <if test="record.certificateImgFrontal != null" >
+        certificate_img_frontal = #{record.certificateImgFrontal,jdbcType=VARCHAR},
+      </if>
+      <if test="record.certificateImgBack != null" >
+        certificate_img_back = #{record.certificateImgBack,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shipId != null" >
+        ship_id = #{record.shipId,jdbcType=INTEGER},
+      </if>
+      <if test="record.commentId != null" >
+        comment_id = #{record.commentId,jdbcType=INTEGER},
+      </if>
+      <if test="record.drivingLicenseId != null" >
+        driving_license_id = #{record.drivingLicenseId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.drivingLicenseImgFrontal != null" >
+        driving_license_img_frontal = #{record.drivingLicenseImgFrontal,jdbcType=VARCHAR},
+      </if>
+      <if test="record.drivingLicenseImgBack != null" >
+        driving_license_img_back = #{record.drivingLicenseImgBack,jdbcType=VARCHAR},
+      </if>
+      <if test="record.drivingLicenseStartTime != null" >
+        driving_license_start_time = #{record.drivingLicenseStartTime,jdbcType=DATE},
+      </if>
+      <if test="record.drivingLicenseEndTime != null" >
+        driving_license_end_time = #{record.drivingLicenseEndTime,jdbcType=DATE},
+      </if>
+      <if test="record.remarks != null" >
+        remarks = #{record.remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="record.spareOne != null" >
+        spare_one = #{record.spareOne,jdbcType=VARCHAR},
+      </if>
+      <if test="record.spareTwo != null" >
+        spare_two = #{record.spareTwo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.registerTime != null" >
+        register_time = #{record.registerTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateTime != null" >
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateName != null" >
+        update_name = #{record.updateName,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update user_extend
+    set id = #{record.id,jdbcType=INTEGER},
+      u_id = #{record.uId,jdbcType=INTEGER},
+      real_name = #{record.realName,jdbcType=VARCHAR},
+      id_card = #{record.idCard,jdbcType=VARCHAR},
+      id_card_img_frontal = #{record.idCardImgFrontal,jdbcType=VARCHAR},
+      id_card_img_back = #{record.idCardImgBack,jdbcType=VARCHAR},
+      sex = #{record.sex,jdbcType=VARCHAR},
+      birthday = #{record.birthday,jdbcType=DATE},
+      grade = #{record.grade,jdbcType=INTEGER},
+      certificate_img_frontal = #{record.certificateImgFrontal,jdbcType=VARCHAR},
+      certificate_img_back = #{record.certificateImgBack,jdbcType=VARCHAR},
+      ship_id = #{record.shipId,jdbcType=INTEGER},
+      comment_id = #{record.commentId,jdbcType=INTEGER},
+      driving_license_id = #{record.drivingLicenseId,jdbcType=VARCHAR},
+      driving_license_img_frontal = #{record.drivingLicenseImgFrontal,jdbcType=VARCHAR},
+      driving_license_img_back = #{record.drivingLicenseImgBack,jdbcType=VARCHAR},
+      driving_license_start_time = #{record.drivingLicenseStartTime,jdbcType=DATE},
+      driving_license_end_time = #{record.drivingLicenseEndTime,jdbcType=DATE},
+      remarks = #{record.remarks,jdbcType=VARCHAR},
+      spare_one = #{record.spareOne,jdbcType=VARCHAR},
+      spare_two = #{record.spareTwo,jdbcType=VARCHAR},
+      register_time = #{record.registerTime,jdbcType=TIMESTAMP},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      update_name = #{record.updateName,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.chuxin.pojo.UserExtend" >
+    update user_extend
+    <set >
+      <if test="uId != null" >
+        u_id = #{uId,jdbcType=INTEGER},
+      </if>
+      <if test="realName != null" >
+        real_name = #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="idCard != null" >
+        id_card = #{idCard,jdbcType=VARCHAR},
+      </if>
+      <if test="idCardImgFrontal != null" >
+        id_card_img_frontal = #{idCardImgFrontal,jdbcType=VARCHAR},
+      </if>
+      <if test="idCardImgBack != null" >
+        id_card_img_back = #{idCardImgBack,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        sex = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null" >
+        birthday = #{birthday,jdbcType=DATE},
+      </if>
+      <if test="grade != null" >
+        grade = #{grade,jdbcType=INTEGER},
+      </if>
+      <if test="certificateImgFrontal != null" >
+        certificate_img_frontal = #{certificateImgFrontal,jdbcType=VARCHAR},
+      </if>
+      <if test="certificateImgBack != null" >
+        certificate_img_back = #{certificateImgBack,jdbcType=VARCHAR},
+      </if>
+      <if test="shipId != null" >
+        ship_id = #{shipId,jdbcType=INTEGER},
+      </if>
+      <if test="commentId != null" >
+        comment_id = #{commentId,jdbcType=INTEGER},
+      </if>
+      <if test="drivingLicenseId != null" >
+        driving_license_id = #{drivingLicenseId,jdbcType=VARCHAR},
+      </if>
+      <if test="drivingLicenseImgFrontal != null" >
+        driving_license_img_frontal = #{drivingLicenseImgFrontal,jdbcType=VARCHAR},
+      </if>
+      <if test="drivingLicenseImgBack != null" >
+        driving_license_img_back = #{drivingLicenseImgBack,jdbcType=VARCHAR},
+      </if>
+      <if test="drivingLicenseStartTime != null" >
+        driving_license_start_time = #{drivingLicenseStartTime,jdbcType=DATE},
+      </if>
+      <if test="drivingLicenseEndTime != null" >
+        driving_license_end_time = #{drivingLicenseEndTime,jdbcType=DATE},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="spareOne != null" >
+        spare_one = #{spareOne,jdbcType=VARCHAR},
+      </if>
+      <if test="spareTwo != null" >
+        spare_two = #{spareTwo,jdbcType=VARCHAR},
+      </if>
+      <if test="registerTime != null" >
+        register_time = #{registerTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateName != null" >
+        update_name = #{updateName,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.chuxin.pojo.UserExtend" >
+    update user_extend
+    set u_id = #{uId,jdbcType=INTEGER},
+      real_name = #{realName,jdbcType=VARCHAR},
+      id_card = #{idCard,jdbcType=VARCHAR},
+      id_card_img_frontal = #{idCardImgFrontal,jdbcType=VARCHAR},
+      id_card_img_back = #{idCardImgBack,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=VARCHAR},
+      birthday = #{birthday,jdbcType=DATE},
+      grade = #{grade,jdbcType=INTEGER},
+      certificate_img_frontal = #{certificateImgFrontal,jdbcType=VARCHAR},
+      certificate_img_back = #{certificateImgBack,jdbcType=VARCHAR},
+      ship_id = #{shipId,jdbcType=INTEGER},
+      comment_id = #{commentId,jdbcType=INTEGER},
+      driving_license_id = #{drivingLicenseId,jdbcType=VARCHAR},
+      driving_license_img_frontal = #{drivingLicenseImgFrontal,jdbcType=VARCHAR},
+      driving_license_img_back = #{drivingLicenseImgBack,jdbcType=VARCHAR},
+      driving_license_start_time = #{drivingLicenseStartTime,jdbcType=DATE},
+      driving_license_end_time = #{drivingLicenseEndTime,jdbcType=DATE},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      spare_one = #{spareOne,jdbcType=VARCHAR},
+      spare_two = #{spareTwo,jdbcType=VARCHAR},
+      register_time = #{registerTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      update_name = #{updateName,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="findOne" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+  select * from user_extend where ship_id =#{shipId}
+  </select>
+
+  <!--根据用户id查询用户信息是否已存在-->
+  <select id="selectByUid" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from user_extend
+    where u_id = #{uid}
+  </select>
+
+  <!--根据用户id修改用户信息-->
+  <update id="updateUserExtend" parameterType="com.chuxin.pojo.UserExtend">
+    update user_extend
+    <set>
+      <if test="uId != null">
+        u_id = #{uId,jdbcType=INTEGER},
+      </if>
+      <if test="realName != null">
+        real_name = #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="idCard != null">
+        id_card = #{idCard,jdbcType=VARCHAR},
+      </if>
+      <if test="idCardImgFrontal != null">
+        id_card_img_frontal = #{idCardImgFrontal,jdbcType=VARCHAR},
+      </if>
+      <if test="idCardImgBack != null">
+        id_card_img_back = #{idCardImgBack,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null">
+        birthday = #{birthday,jdbcType=DATE},
+      </if>
+      <if test="grade != null">
+        grade = #{grade,jdbcType=INTEGER},
+      </if>
+      <if test="certificateImgFrontal != null">
+        certificate_img_frontal = #{certificateImgFrontal,jdbcType=VARCHAR},
+      </if>
+      <if test="certificateImgBack != null">
+        certificate_img_back = #{certificateImgBack,jdbcType=VARCHAR},
+      </if>
+      <if test="shipId != null">
+        ship_id = #{shipId,jdbcType=INTEGER},
+      </if>
+      <if test="commentId != null">
+        comment_id = #{commentId,jdbcType=INTEGER},
+      </if>
+      <if test="drivingLicenseId != null">
+        driving_license_id = #{drivingLicenseId,jdbcType=VARCHAR},
+      </if>
+      <if test="drivingLicenseImgFrontal != null">
+        driving_license_img_frontal = #{drivingLicenseImgFrontal,jdbcType=VARCHAR},
+      </if>
+      <if test="drivingLicenseImgBack != null">
+        driving_license_img_back = #{drivingLicenseImgBack,jdbcType=VARCHAR},
+      </if>
+      <if test="drivingLicenseStartTime != null">
+        driving_license_start_time = #{drivingLicenseStartTime,jdbcType=DATE},
+      </if>
+      <if test="drivingLicenseEndTime != null">
+        driving_license_end_time = #{drivingLicenseEndTime,jdbcType=DATE},
+      </if>
+      <if test="remarks != null">
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="spareOne != null">
+        spare_one = #{spareOne,jdbcType=VARCHAR},
+      </if>
+      <if test="spareTwo != null">
+        spare_two = #{spareTwo,jdbcType=VARCHAR},
+      </if>
+      <if test="registerTime != null">
+        register_time = #{registerTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateName != null">
+        update_name = #{updateName,jdbcType=INTEGER},
+      </if>
+    </set>
+    where u_id = #{uid,jdbcType=INTEGER}
+  </update>
+
+</mapper>
