@@ -1,1 +1,0 @@
-var app=angular.module("chuxin",[]);//定义海钓模块
