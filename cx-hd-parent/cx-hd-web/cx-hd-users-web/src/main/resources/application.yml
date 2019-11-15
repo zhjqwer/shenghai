@@ -1,0 +1,15 @@
+server:
+  port: 9093
+dubbo:
+  application:
+    name: hd-sea-service-web
+    qos-port: 33336
+    qos-enable: true
+    qos-accept-foreign-ip: false
+  registry:
+    address: zookeeper://112.124.202.142:2181
+
+#开发时候用但是线上一定true
+spring:
+  thymeleaf:
+    cache: false

@@ -1,0 +1,11 @@
+com\cx\hd\entity\UserExtend.class
+com\cx\hd\entity\Personal.class
+com\cx\hd\entity\Navigation.class
+com\cx\hd\entity\Users.class
+com\cx\hd\entity\Reply.class
+com\cx\hd\entity\SeaService.class
+com\cx\hd\entity\ShipCertificate.class
+com\cx\hd\entity\Comment.class
+com\cx\hd\entity\Oauths.class
+com\cx\hd\entity\ShipInformation.class
+com\cx\hd\entity\BookingTime.class

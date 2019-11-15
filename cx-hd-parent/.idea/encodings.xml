@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/cx-hd-service/cx-hd-user-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cx-hd-service/hd-navigation-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cx-hd-service/hd-sea-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cx-hd-web/cx-hd-index" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cx-hd-web/cx-hd-sso" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cx-hd-web/cx-hd-users-web" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cx-hd-web/hd-sea-service-web" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>

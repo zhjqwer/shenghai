@@ -1,0 +1,18 @@
+server:
+  port: 8082
+
+dubbo:
+  application:
+    name: navigation-service
+  registry:
+    address: zookeeper://112.124.202.142:2181
+  protocol:
+    port: 20892
+
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://112.124.202.142:3306/cx_hd?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: root

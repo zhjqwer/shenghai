@@ -1,0 +1,11 @@
+com\cx\hd\mapper\ShipInformationMapper.class
+com\cx\hd\mapper\BookingTimeMapper.class
+com\cx\hd\mapper\SeaServiceMapper.class
+com\cx\hd\mapper\OauthsMapper.class
+com\cx\hd\mapper\ShipCertificateMapper.class
+com\cx\hd\mapper\UsersMapper.class
+com\cx\hd\mapper\PersonalMapper.class
+com\cx\hd\mapper\UserExtendMapper.class
+com\cx\hd\mapper\NavigationMapper.class
+com\cx\hd\mapper\ReplyMapper.class
+com\cx\hd\mapper\CommentMapper.class
