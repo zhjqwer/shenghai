@@ -1,0 +1,17 @@
+server:
+  port: 9091
+dubbo:
+  application:
+    name: hd-index
+    qos-port: 33391
+    qos-enable: true
+    qos-accept-foreign-ip: false
+  registry:
+    address: zookeeper://112.124.202.142:2181
+
+#开发时候用但是线上一定true
+spring:
+  thymeleaf:
+    cache: false
+  redis:
+    host: 112.124.202.142

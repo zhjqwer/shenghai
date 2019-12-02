@@ -1,0 +1,30 @@
+server:
+  port: 8083
+
+dubbo:
+  application:
+    name: ship-service
+    qos-port: 33383
+    qos-enable: true
+    qos-accept-foreign-ip: false
+  registry:
+    address: zookeeper://112.124.202.142:2181
+  protocol:
+    port: 20893
+
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://112.124.202.142:3306/cx_hd?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+      ## Mybatis 配置 
+      ## mybatis.typeAliasesPackage 为实体对象所在的包，跟数据库表一一对应
+    ## mybatis.mapperLocations 为mapper文件的位置
+
+
+mybatis:
+  type-aliases-package: com.chuxin.pojo
+  mapper-locations: classpath:mapper/*.xml
+

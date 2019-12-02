@@ -1,0 +1,17 @@
+package com.chuxin.hd.cx.navigation.service;
+
+import com.alibaba.dubbo.config.spring.context.annotation.EnableDubbo;
+import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@EnableDubbo
+@SpringBootApplication
+@MapperScan("com.chuxin.mapper")
+public class HdCxNavigationServiceApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(HdCxNavigationServiceApplication.class, args);
+    }
+
+}

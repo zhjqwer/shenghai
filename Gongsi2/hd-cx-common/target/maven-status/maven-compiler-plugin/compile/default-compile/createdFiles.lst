@@ -1,0 +1,5 @@
+util\CookieUtil.class
+util\PhoneFormatCheckUtils.class
+util\CookieConstant.class
+util\IdWorker.class
+util\RedisConstant.class

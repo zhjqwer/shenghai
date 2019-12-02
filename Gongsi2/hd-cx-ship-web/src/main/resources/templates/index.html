@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>首页</title>
+		<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+		<!-- 引入 Bootstrap -->
+		<link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
+		<script src="https://code.jquery.com/jquery.js"></script>
+		<!-- 包括所有已编译的插件 -->
+		<script src="/js/bootstrap.min.js"></script>
+	</head>
+
+	<body>
+		<div class="container">
+			
+		   <div class="row">
+			  <br>
+			  <div class="col-md-8" >
+				  
+				  <div class="#" id="welcome-info">
+				      <!--未登录-->
+				      <a href="http://localhost:9090/user/show/login" target="_top" class="h">请登录</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				      <a href="http://localhost:9093/user/reg" target="_top">去注册</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				      <!--已登录-->
+				      <a href="http://localhost:9090/user/logOut" target="_top">注销</a>
+				  </div>
+				  
+			  </div>
+			  <div class="col-md-4">
+				 
+				     <div class="#">
+				        <a href="#" target="_top" class="h">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				        <a href="#" target="_top"><i class="am-icon-user am-icon-fw"></i>个人中心</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				        <a id="mc-menu-hd" href="#" target="_top"><span>订单</span></a>
+                            
+				     </div>
+
+			  </div>
+			  
+			  <div style="height: 100px;"></div>
+			  
+			  <div>
+				   <div class="#">
+				      <ul class="list-inline">
+				          <li class="#"><a href="#">首页</a></li>
+				          <li class="#"><a href="#">资讯</a></li>
+				          <li class="#"><a href="#">服务</a></li>
+				          <li class="#"><a href="#">关于我们</a></li>
+				      </ul>
+				  </div>
+			  </div>
+		   </div>
+		   
+
+		</div>
+
+
+	<script type="text/javascript" src="/js/bootstrap.js"></script>
+	<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+
+	<script type="text/javascript">
+		$.ajax({
+			url: "http://localhost:9090/user/check/isLogin",
+			xhrFields: {
+				withCredentials: true
+			},
+			success: function (data) {
+				var str = "";
+				if(data.code == 0){
+					str += "欢迎<span>" + data.data.name + "</span>";
+					str += "<a href=\"http://localhost:9090/user/logOut\" target=\"_top\">注销!</a>";
+				}else{
+					str += "欢迎<span>" + data.message + "</span>";
+					str += "欢迎<span>" + data.code + "</span>";
+					str += "<a href=\"http://localhost:9090/user/show/login\">请登录</a>";
+					str += "<a href=\"http://localhost:9093/user/reg\">去注册</a>";
+				}
+				$("#welcome-info").html(str);
+			}
+		})
+	</script>
+
+	</body>
+
+</html>
