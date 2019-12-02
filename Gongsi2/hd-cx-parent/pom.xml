@@ -15,8 +15,16 @@
         <module>../hd-cx-user-interface</module>
         <module>../hd-cx-common</module>
         <module>../hd-cx-ship-interface</module>
+        <module>../hd-cx-navigation-service-web</module>
         <module>../hd-cx-navigation-interface</module>
         <module>../hd-cx-sea-service-interface</module>
+        <module>../hd-cx-user-service</module>
+        <module>../hd-cx-user-web</module>
+        <module>../hd-cx-ship-service</module>
+        <module>../hd-cx-ship-web</module>
+        <module>../hd-cx-sea-service</module>
+        <module>../hd-cx-sea-web</module>
+        <module>../hd-cx-index-web</module>
     </modules>
 
 
