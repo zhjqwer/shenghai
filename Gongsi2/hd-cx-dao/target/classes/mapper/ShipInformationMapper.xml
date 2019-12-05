@@ -430,4 +430,13 @@
       update_name = #{updateName,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <!--根据用户id查询船只信息-->
+  <select id="selectByUid" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from ship_information
+    where u_id = #{uId}
+  </select>
+
 </mapper>

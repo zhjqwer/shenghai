@@ -12,16 +12,16 @@
         <module name="hd-cx-index-web" />
         <module name="hd-cx-pojo" />
         <module name="hd-cx-common" />
-        <module name="hd-cx-dao" />
+        <module name="hd-cx-ship-web" />
         <module name="hd-cx-navigation-service" />
         <module name="hd-cx-sea-service-web" />
-        <module name="hd-cx-user-interface" />
+        <module name="hd-cx-navigation-interface" />
         <module name="hd-cx-ship-interface" />
         <module name="hd-cx-interface" />
         <module name="hd-cx-sea-service" />
-        <module name="hd-cx-navigation-interface" />
+        <module name="hd-cx-dao" />
         <module name="hd-cx-ship-service" />
-        <module name="hd-cx-ship-web" />
+        <module name="hd-cx-user-interface" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
