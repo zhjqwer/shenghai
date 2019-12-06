@@ -34,7 +34,11 @@ public class SeaServiceController {
 
     @ResponseBody
     @RequestMapping("show/sea/service")
-    public ResultBean querySeaServiceAll(){
+    public ResultBean querySeaServiceAll(HttpServletRequest request,HttpServletResponse response){
+
+        response.setHeader("Access-Control-Allow-Origin", request.getHeader("Origin"));
+        response.setHeader("Access-Control-Allow-Credentials", "true");
+
         System.out.println("调用查询出海服务的方法");
         List<SeaServiceDto> seaServices = seaServiceService.list();
         if(seaServices == null){

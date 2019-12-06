@@ -80,7 +80,7 @@ public class ShipController {
     @ResponseBody
     @RequestMapping("/update/file")
     private ResultBean update() {
-        File file=new File("F:\\images\\1.png");
+        File file=new File("F:\\img\\1.png");
         ShipInformation byid = shipInformationService.findByid(1);
         long l = System.currentTimeMillis();
         long l1=(long) RandomUtils.nextInt(100, 9999);

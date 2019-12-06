@@ -18,7 +18,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://112.124.202.142:3306/cx_hd?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
     username: root
-    password: NBshwl123!
+    password: "NBshwl123456!"
       ## Mybatis 配置 
       ## mybatis.typeAliasesPackage 为实体对象所在的包，跟数据库表一一对应
     ## mybatis.mapperLocations 为mapper文件的位置

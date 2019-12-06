@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.chuxin</groupId>
+    <artifactId>hd-cx-parent</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>../hd-cx-dao</module>
+        <module>../hd-cx-interface</module>
+        <module>../hd-cx-pojo</module>
+        <module>../hd-cx-user-interface</module>
+        <module>../hd-cx-common</module>
+        <module>../hd-cx-ship-interface</module>
+        <module>../hd-cx-navigation-service-web</module>
+        <module>../hd-cx-navigation-interface</module>
+        <module>../hd-cx-sea-service-interface</module>
+        <module>../hd-cx-user-service</module>
+        <module>../hd-cx-user-web</module>
+        <module>../hd-cx-ship-service</module>
+        <module>../hd-cx-ship-web</module>
+        <module>../hd-cx-sea-service</module>
+        <module>../hd-cx-sea-web</module>
+        <module>../hd-cx-index-web</module>
+    </modules>
+
+
+</project>
