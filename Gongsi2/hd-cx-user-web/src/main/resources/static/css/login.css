@@ -1,179 +1,177 @@
-*{
+* {
     margin: 0;
     padding: 0;
-}
-html,body,.container,.wrap{
-	width: 100%;
-	height: 100%;
-}
-em{
-	font-style: normal;
-}
-a{
-	display: inline-block;
-	text-decoration: none;
-	color: #000;
-}
-li{
-	list-style: none;
-	display: inline-block;
-	border-right: 1px solid #000;
-}
-.clear{
-	clear: both;
-}
-header,footer,section{
-	width: 1300px;
-	margin:0 auto;
+    font-family: 微软雅黑；
 }
 
-header,footer{
-	height: 100px;
+em {
+    display: block;
+    font-style: normal;
+    font-size: 14px;
+    color: rgb(179, 177, 177)
 }
 
-/*头部样式*/
-header em{
-	font-size: 50px;
-	height: 100px;
-	line-height: 100px;
-}
-header span{
-	font-size: 22px;
-	margin-left:20px;
+li {
+    list-style: none;
+    display: inline-block;
 }
 
-article{
-	width: 100%;
-	height: 600px;
-	background-color: #00a0e9;
-}
-section{
-	height: 600px;
-	background-image: url("../img/bg.png");
-	background-size: auto 100%;
-	background-repeat: no-repeat;
-	position: relative;
+li a {
+    text-decoration: none;
 }
 
-/*表单的样式*/
-aside{
-	width: 400px;
-	height: 450px;
-	position: absolute;
-	top: 70px;
-	right: 100px;
-	background-color:#fff9;
-	border-radius: 15px;
+html,
+body,
+.wrapper {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
 }
-aside em{
-	display: block;
-	width: 60px;
-	height: 60px;
-	margin: 25px auto 10px auto;
+
+.wrapper {
+    background-image: url("../img/bj.gif");
+    background-size: 100% 100%;
+    position: relative;
 }
-aside em img{
-	width: 100%;
-	height: auto;
+
+article {
+    width: 1200px;
+    margin: 0 auto;
 }
+
+article {
+    width: 400px;
+    margin: 100px auto 0px auto;
+}
+
+article h1 {
+    width: 400px;
+    color: #5593ce;
+    text-align: center;
+    margin-bottom: 15px;
+    font-weight: normal;
+}
+
+article h1 em {
+    display: inline-block;
+    color: #5593ce;
+    font-size: 25px;
+}
+
+.main {
+    padding: 40px 0px;
+    width: 100%;
+    background-color: rgba(24, 80, 137, 0.77);
+}
+
 form {
-	width: 300px;
-	margin: 0 auto;
+    width: 297px;
+    margin: 0 auto;
 }
-form p{
-	position: relative;
-	margin-top: 10px;
+
+.main form input {
+    margin: 10px 0;
+    width: 280px;
+    height: 35px;
+    border-radius: 3px;
+    display: inline-block;
+    border: 1px solid rgb(165, 161, 161);
+    padding-left: 10px;
 }
-form input{
-	padding-left: 50px;
-	width: 250px;
-	height: 40px;
-	border:1px solid #47414133;
-	margin-top: 20px;
-	border-radius: 10px;
-	background-color:rgba(255, 255, 255, 0.82);
-	outline: none;
+
+form button {
+    width: 290px;
+    height: 35px;
+    background-color: red;
+    color: #fff;
+    border: none;
+    margin-top: 15px;
+    letter-spacing: 10px;
+    font-size: 16px;
+    text-align: center;
 }
-form i{
-	width: 30px;
-	height: 30px;
-	display: inline-block;
-	position: absolute;
+
+footer {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 50px;
+    font-size: 14px;
+    color: #5593ce;
 }
-.name i{
-	background-image: url("../img/user1.png");
-	background-repeat: no-repeat;
-	left: 10px;
-	top: 27px;
+
+footer ul {
+    width: 570px;
+    height: 35px;
 }
-.password i{
-	background-image: url("../img/password1.png");
-	background-repeat: no-repeat;
-	left: 10px;
-	top: 29px;
+
+footer p {
+    width: 100%;
+    text-align: center;
 }
-button{
-	background-color:#00a0e9;
-	border:none;
-	width: 100%;
-	height: 40px;
-	letter-spacing: 3px;
-	font-size: 20px;
-	margin-top: 35px;
-	border-radius: 10px;
-	color: #fff;
-	outline: none;
+
+footer ul li {
+    display: inline-block;
+    width: 90px;
+    height: 13px;
+    line-height: 13px;
+    border-right: 1px solid #5593ce;
+    text-align: center;
 }
-.remember{
-	width: 170px;
+
+footer ul li a {
+    font-size: 14px;
+    color: #5593ce;
 }
-.remember input{
-	width: 24px;
-	height: 24px;
-	background-image: url("../img/rememberPassword1.png");
-	-webkit-appearance: none;
-    -moz-appearance: none;
-    -o-appearance:none;
-    padding-left: 0px;
-    border-radius: 0px;
-    background-color: rgba(0,0,0,0);
-    border:none;
-    vertical-align: middle;
-    margin-right: 5px;
-    margin-top: 0px;
+
+footer ul,
+footer p {
+    margin: 0 auto;
 }
-.remember input:checked{	
-	background-image: url("../img/rememberPassword2.png");
+
+
+/* 新增的 */
+
+a {
+    text-decoration: none;
+    color: black;
 }
-.remember,.regist{
-	float: left;
-	font-size: 15px;
-	height: 40px;
-	line-height: 40px;
-	margin-top: 20px;
+
+.wrapper .main .rem input {
+    width: 28px;
+    height: 28px;
 }
-.regist{
-	width: 130px;
+
+.rem {
+    /* border: 1px solid red; */
+    display: flex;
+    align-items: center;
 }
-.regist a{
-	color: red;
+
+.rem span {
+    height: 30px;
+    line-height: 30px;
 }
-/*尾部样式*/
-footer{
-	margin-top: 15px;
+
+.rem a {
+    height: 30px;
+    line-height: 30px;
+    text-decoration: none;
+    padding-left: 20px;
 }
-footer ul{
-	width: 68%;	
-	margin: 0 auto;
+
+.cooperation {
+    margin: 15px 0;
 }
-footer ul li{
-	width: 120px;
-	text-align: center;
-	font-size: 13px;
-	height: 15px;
-	line-height: 15px;
+
+.cooperation h3 {
+    text-align: center;
 }
-footer p{
-	text-align: center;
-	font-size: 13px;
-	margin-top: 10px;
+
+.mode {
+    text-align: center;
+}
+
+.weibo {
+    padding: 0 15px;
 }

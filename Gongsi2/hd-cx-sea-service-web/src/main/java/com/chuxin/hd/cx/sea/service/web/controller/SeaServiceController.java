@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.Date;
 import java.util.List;
 
@@ -43,7 +45,12 @@ public class SeaServiceController {
 
     @ResponseBody
     @RequestMapping("show/index/service")
-    public ResultBean selectByIslandService(@RequestParam(value = "island",defaultValue = "鱼山岛") String island){
+    public ResultBean selectByIslandService(@RequestParam(value = "island",defaultValue = "鱼山岛") String island,
+                                            HttpServletRequest request,HttpServletResponse response){
+
+        response.setHeader("Access-Control-Allow-Origin", request.getHeader("Origin"));
+        response.setHeader("Access-Control-Allow-Credentials", "true");
+
         System.out.println("调用根据岛查询创建时间最早的6条出海服务");
         List<SeaServiceDto> byIslandServiceDto = seaServiceService.selectByIslandService(island);
         if(byIslandServiceDto == null){

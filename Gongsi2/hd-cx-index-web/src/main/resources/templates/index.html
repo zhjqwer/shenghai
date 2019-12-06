@@ -1,88 +1,440 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
-	<head>
-		<meta charset="utf-8">
-		<title>首页</title>
-		<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-		<!-- 引入 Bootstrap -->
-		<link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>主页</title>
+    <meta name="description" content="这里是介绍.......">
+    <meta name="Keywords" content="这里是搜索关键词">
+    <link rel="shortcut icon" href="../static/images/favicon.ico" />
+    <!-- 引入css初始化文件 -->
+    <link rel="stylesheet" href="../static/css/normalize.css" />
+    <!-- 头部和底部 结构基本相同 我们做基本的公共样式 -->
+    <link rel="stylesheet" href="../static/css/base.css" />
+    <!-- 我们做专属的首页样式 -->
+    <link rel="stylesheet" href="../static/css/index.css" />
+    <!-- 导入jquery文件 -->
+    <script src="../static/js/jquery.min.js"></script>
+    <!-- 导入页面渲染后直接出发的js文件 -->
+    <script src="../static/js/index.js"></script>
+    <!-- 导入点击触发的js文件 -->
+    <script src="../static/js/click-trigger.js"></script>
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="../static/css/swiper.min.css">
+    <!-- Swiper JS -->
+    <script src="../static/js/swiper.min.js"></script>
+    <script src="http://mockjs.com/dist/mock.js"></script>
+</head>
 
-		<!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
-		<script src="https://code.jquery.com/jquery.js"></script>
-		<!-- 包括所有已编译的插件 -->
-		<script src="/js/bootstrap.min.js"></script>
-	</head>
+<body>
+    <!-- --------------------头部 start -------------------------------->
+    <header>
+        <!-- Swiper -->
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="../static/images/lunbotu_01.png" alt=""></div>
+                <div class="swiper-slide"><img src="../static/images/focus1.png" alt=""></div>
+                <div class="swiper-slide"><img src="../static/images/focus2.png" alt=""></div>
+                <div class="swiper-slide"><img src="../static/images/focus3.png" alt=""></div>
+            </div>
+            <!-- Add  分页 -->
+            <div class="swiper-pagination"></div>
+            <!-- Add Arrows 左右按钮 -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
 
-	<body>
-		<div class="container">
-			
-		   <div class="row">
-			  <br>
-			  <div class="col-md-8" >
-				  
-				  <div class="#" id="welcome-info">
-				      <!--未登录-->
-				      <a href="http://localhost:9090/user/show/login" target="_top" class="h">请登录</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				      <a href="#" target="_top">去注册</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				      <!--已登录-->
+        <!-- 搜索框  -->
+        <div class="header-left">
+            <img src="../static/images/logowhite.png" alt="" class="fl">
+            <button class="fl"><i></i></button>
+            <input type="text" placeholder="搜'舟山岛'试试" class="fl">
+        </div>
 
-				      <a href="http://localhost:9090/user/logOut" target="_top">注销</a>
-				  </div>
-				  
-			  </div>
-			  <div class="col-md-4">
-				 
-				     <div class="#">
-				        <a href="#" target="_top" class="h">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				        <a href="#" target="_top"><i class="am-icon-user am-icon-fw"></i>个人中心</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				        <a id="mc-menu-hd" href="#" target="_top"><span>订单</span></a>
-                            
-				     </div>
+        <!-- 头部快速导航栏 start  -->
+        <div class="header-right">
+            <ul>
+                <li id="login-info">
+                    <a href="#">手机端</a>
+                    <a href="#">出租船员</a>
+                    <a href="#">帮助</a>
+                </li>
+                <li id="welcome-info">
+                    <a href="http://localhost:9090/user/reg">注册</a>
+                    <a href="http://localhost:9090/user/login">登录</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <!-- --------------------头部 结束 --------------------------->
 
-			  </div>
-			  
-			  <div style="height: 100px;"></div>
-			  
-			  <div>
-				   <div class="#">
-				      <ul class="list-inline">
-				          <li class="#"><a href="#">首页</a></li>
-				          <li class="#"><a href="#">资讯</a></li>
-				          <li class="#"><a href="#">服务</a></li>
-				          <li class="#"><a href="#">关于我们</a></li>
-				      </ul>
-				  </div>
-			  </div>
-		   </div>
-		   
+    <!-- ------------------------------------中间身体部分开始------------------ -->
+    <div class="w">
+        <!--  中间主体区域 文字标题(轮播图上面)  -->
+        <div class="center">
+            <div class="title">
+                <h1>出海垂钓佳地推荐<br>垂钓地推荐 工具齐准备</h1>
+                <button type="button" class="btn">
+                    <span>查看合集</span>
+                </button>
+            </div>
 
-		</div>
+            <!-- 输入目的地 -->
+            <div class="input">
+                <div class="houseResources">
+                    <!-- <ul>
+                        <li><span>房源</span><i class=""></i></li>
+                    </ul> -->
+                    <select id="province">
+                            <option value="-1">选择城市</option>     
+                            <option value="0">象山</option>
+                            <option value="1">舟山</option>
+                    </select>
+                </div>
+                <div class="area">
+                    <!-- <ul>
+                        <li><i class=""></i><input type="text" placeholder="输入目的地、城市或景点"></li>
+                    </ul> -->
+                    <select id="city">
+                            <option value="-1">你最喜欢去哪个岛屿?</option>
+                    </select>
+                </div>
+                <div class="count">
+                    <!-- <ul>
+                        <li><span>出行人数</span><i class=""></i></li>
+                    </ul> -->
+                    <select id="count">
+                        <option value="-1">出海人数</option>
+                        <option value="0">4人</option>
+                        <option value="1">6人</option>
+                        <option value="2">8人</option>
+                    </select>
+                </div>
+                <div class="time">
+                    <!-- <ul>
+                        <li><span>出行时间</span><i class=""></i></li>
+                    </ul> -->
+                    <select id="time">
+                        <option value="-1">出海时间</option>
+                        <option value="0">08:00</option>
+                        <option value="1">12:00</option>
+                        <option value="2">14:00</option>
+                    </select>
+                </div>
+                <div class="search">
+                    <ul>
+                        <li><button id="button" type="button">搜索</button></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="w clearfix">
+        <!-- -----------轮播图以下的身体部分   开始--------------------------------- -->
+        <!-- -------------------------------出海景点推荐------------------ -->
+        <div class="seaScenery">
+            <h2>出海垂钓景点推荐</h2>
+            <p>拉上三五好友出海垂钓</p>
+            <!-- 选择地点 -->
+            <div class="choiceLocation">
+                <ul id="island">
+                    <li class="fl blue">鱼山岛</li>
+                    <li class="fl">浪岗岛</li>
+                    <li class="fl">东极岛</li>
+                    <li class="fl">嵊三岛</li>
+                    <li class="fl">嵊泗岛</li>
+                    <li class="fl">安全岛</li>
+                    <li class="fl">安全岛</li>
+                    <li class="fl">安全岛</li>
+                </ul>
+                <div><span>></span></div>
+            </div>
+            <!-- 渔船图片 发布消息-->
+            <div class="message clearfix">
+                <div id="islanddiv" class="clearfix">
+                    <div class="fl fish">
+                        <ul>
+                            <li><img src="../static/images/1.png" alt=""></li>
+                            <li class="ship"><span>｢无畏号｣ 大船只，长*宽：8M*3M 限载人数8人，船只新颖，驾船10年</span></li>
+                            <li class="price">
+                                <span>￥1899/艘</span><span class="horizontalline">￥2399/艘</span>
+                            </li>
+                            <li>
+                                <img class="xingxing" src="../static/images/xingxing.png" alt=""><span>68 · 超赞驾驶</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="fl fish">
+                        <ul>
+                            <li><img src="../static/images/3.png" alt=""></li>
+                            <li class="ship"><span>｢无畏号｣ 大船只，长*宽：8M*3M 限载人数8人，船只新颖，驾船10年</span></li>
+                            <li class="price">
+                                <span>￥1899/艘</span><span class="horizontalline">￥2399/艘</span>
+                            </li>
+                            <li>
+                                <img class="xingxing" src="../static/images/xingxing.png" alt=""><span>68 · 超赞驾驶</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="fl fish">
+                        <ul>
+                            <li><img src="../static/images/1.png" alt=""></li>
+                            <li class="ship"><span>｢无畏号｣ 大船只，长*宽：8M*3M 限载人数8人，船只新颖，驾船10年</span></li>
+                            <li class="price">
+                                <span>￥1899/艘</span><span class="horizontalline">￥2399/艘</span>
+                            </li>
+                            <li>
+                                <img class="xingxing" src="../static/images/xingxing.png" alt=""><span>68 · 超赞驾驶</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="fl fish">
+                        <ul>
+                            <li><img src="../static/images/3.png" alt=""></li>
+                            <li class="ship"><span>｢无畏号｣ 大船只，长*宽：8M*3M 限载人数8人，船只新颖，驾船10年</span></li>
+                            <li class="price">
+                                <span>￥1899/艘</span><span class="horizontalline">￥2399/艘</span>
+                            </li>
+                            <li>
+                                <img class="xingxing" src="../static/images/xingxing.png" alt=""><span>68 · 超赞驾驶</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 查看更多舟山海岛 -->
+                <div class="more"><a href="#" id="more">查看更多海岛 ></a></div>
+            </div>
+
+        </div>
+        <!-- -------------------嘟嘟出海出行保障--------------------------- -->
+        <div class="tripguarantee">
+            <h2>嘟嘟出海出行保障</h2>
+            <p>您的出行安全是我们的义务</p>
+            <div class="tripguarantee-center">
+                <div class="fl trip">
+                    <div class="fl">
+                        <img src="../static/images/4.png" alt="">
+                    </div>
+                    <div class="fl">
+                        安心船源保障 人工审核所有中国船源<br>页面信息，入住更放心
+                    </div>
+                </div>
+                <div class="fl second trip">
+                    <div class="fl">
+                        <img src="../static/images/5.gif" alt="">
+                    </div>
+                    <div class="fl">
+                        专业在线客服（86）400-888-8888<br>紧急联系 184 5845 1245
+                    </div>
+                </div>
+                <div class="fl trip">
+                    <div class="fl">
+                        <img src="../static/images/6.gif" alt="">
+                    </div>
+                    <div class="fl">
+                        出行安全保障 多重风险控制设计，全<br>方位保障您的行程安全
+                    </div>
+                </div>
+            </div>
+
+            <!-- 不安全隐患监督器 -->
+            <div class="safe"><a href="#">不安全隐患监督器 ></a></div>
+        </div>
+
+        <!-- -------------------------------------嘟嘟出海船源集合地----------------------- -->
+        <div class="assemblePlace">
+            <h2>嘟嘟出海船源集合地</h2>
+            <p>船只与船主经过严选的精选船源系列</p>
+            <div class="browseship">
+                <img src="../static/images/dudu.png" alt="">
+                <!-- 浏览所有船源 -->
+                <div class="allship"><a href="#">浏览所有船源 ></a></div>
+            </div>
+        </div>
+
+        <!-- ----------------------------------出海垂钓之精彩故事-------------------------------- -->
+        <div class="seafishing">
+            <h2>出海垂钓之精彩故事</h2>
+            <p>您的笑容都是精彩的回忆</p>
+            <div class="margin-footer">
+                <div class="sea fl">
+                    <ul>
+                        <li class="sea01"><img src="../static/images/sea01.png" alt=""></li>
+                        <li class="local"><span>东极岛</span></li>
+                        <li class="evaluate"><span>第一次出海，非常愉快，收货满满...</span></li>
+                    </ul>
+                    <div class="fl headportrait">
+                        <a href="#"><img src="../static/images/headportrait.png" alt=""></a>
+                    </div>
+                    <div class="fl">
+                        <div class="fl "><img src="../static/images/hand.png" alt=""></div>
+                        <div class="fl number"><span>18</span></div>
+                        <div class="fl"><img src="../static/images/messages.png" alt=""></div>
+                        <div class="fl number"><span>6</span></div>
+                    </div>
+                </div>
+                <div class="sea fl">
+                    <ul>
+                        <li class="sea01"><img src="../static/images/sea02.png" alt=""></li>
+                        <li class="local"><span>鱼山岛 </span></li>
+                        <li class="evaluate"><span>一群人的海钓，舒服的坐着吹吹海风...</span></li>
+                    </ul>
+                    <div class="fl headportrait">
+                        <a href="#"><img src="../static/images/headportrait.png" alt=""></a>
+                    </div>
+                    <div class="fl">
+                        <div class="fl "><img src="../static/images/hand.png" alt=""></div>
+                        <div class="fl number"><span>18</span></div>
+                        <div class="fl"><img src="../static/images/messages.png" alt=""></div>
+                        <div class="fl number"><span>6</span></div>
+                    </div>
+                </div>
+                <div class="sea fl">
+                    <ul>
+                        <li class="sea01"><img src="../static/images/sea03.png" alt=""></li>
+                        <li class="local"><span>枸杞岛</span></li>
+                        <li class="evaluate"><span>出门还碰到外国友人，留下珍贵的纪念</span></li>
+                    </ul>
+                    <div class="fl headportrait">
+                        <a href="#"><img src="../static/images/headportrait.png" alt=""></a>
+                    </div>
+                    <div class="fl">
+                        <div class="fl "><img src="../static/images/hand.png" alt=""></div>
+                        <div class="fl number"><span>18</span></div>
+                        <div class="fl"><img src="../static/images/messages.png" alt=""></div>
+                        <div class="fl number"><span>6</span></div>
+                    </div>
+                </div>
+                <div class="sea fl">
+                    <ul>
+                        <li class="sea01"><img src="../static/images/sea04.png" alt=""></li>
+                        <li class="local"><span>嵊泗岛  </span></li>
+                        <li class="evaluate"><span>终于掉到第一条鱼，我笑啊跳啊，开心..</span></li>
+                    </ul>
+                    <div class="fl headportrait">
+                        <a href="#"><img src="../static/images/headportrait.png" alt=""></a>
+                    </div>
+                    <div class="fl">
+                        <div class="fl "><img src="../static/images/hand.png" alt=""></div>
+                        <div class="fl number"><span>18</span></div>
+                        <div class="fl"><img src="../static/images/messages.png" alt=""></div>
+                        <div class="fl number"><span>6</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
-	<script type="text/javascript" src="/js/bootstrap.js"></script>
-	<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    </div>
+    <!-- ------------------------------------中间身体部分结束------------------ -->
 
-	<script type="text/javascript">
-		$.ajax({
-			url: "http://localhost:9090/user/check/isLogin",
-			xhrFields: {
-				withCredentials: true
-			},
-			success: function (data) {
-				var str = "";
-				if(data.code == 0){
-					str += "欢迎<span>" + data.data.name + "</span>";
-					str += "<a href=\"http://localhost:9090/user/logOut\" target=\"_top\">注销!</a>";
-				}else{
-					str += "<a href=\"http://localhost:9090/user/show/login\">请登录</a>";
-					str += "<a href=\"#\">去注册</a>";
-				}
-				$("#welcome-info").html(str);
-			}
-		})
-	</script>
+    <!-- ---------------------------------------------页面底部 开始------------------------ -->
+    <footer>
+        <!-- 帮助模块 -->
+        <div class="w help">
+            <div class="fl">
+                <dl>
+                    <dt>嘟嘟出海</dt>
+                    <dd><a href="#">工作机会</a></dd>
+                    <dd><a href="#">嘟嘟出海新闻</a></dd>
+                    <dd><a href="#">政策</a></dd>
+                    <dd><a href="#">帮助</a></dd>
+                    <dd><a href="#">多元化与归属感</a></dd>
+                    <dd><a href="#">无障碍设施</a></dd>
+                </dl>
+                <dl>
+                    <dt>发现</dt>
+                    <dd><a href="#">信任与安全</a></dd>
+                    <dd><a href="#">出行渔具</a></dd>
+                    <dd><a href="#">嘟嘟出海俱乐部</a></dd>
+                    <dd><a href="#">公司团建</a></dd>
+                    <dd><a href="#">缤纷体验新推出</a></dd>
+                    <dd><a href="#">嘟嘟出海杂志</a></dd>
+                </dl>
+                <dl>
+                    <dt>精彩</dt>
+                    <dd><a href="#">渔船租赁</a></dd>
+                    <dd><a href="#">闲置渔船收购</a></dd>
+                    <dd><a href="#">船主义务</a></dd>
+                    <dd><a href="#">船只信息登记</a></dd>
+                    <dd><a href="#">联系我们</a></dd>
+                </dl>
+                <dl>
+                    <dt>
+                        <a href="#"><img src="../static/images/QQ.png" alt=""></a>
+                        <a href="#"><img src="../static/images/wechat.png" alt=""></a>
+                        <a href="#"><img src="../static/images/weibo.png" alt=""></a>
+                    </dt>
+                    <dd><a href="#">条款</a></dd>
+                    <dd><a href="#">隐私政策</a></dd>
+                    <dd><a href="#">网站地图</a></dd>
+                </dl>
+            </div>
+            <!-- ---------------------------------IOS和安卓版本------------------- -->
+            <div class="edition">
+                <ul>
+                    <li><button type="button">IOS版本</button></li>
+                    <li class="anzhuo"><button type="button">安卓版本</button></li>
+                </ul>
+            </div>
 
-	</body>
+        </div>
+        <!-- 底部说明 -->
+        <div class="w">
+            <div class="description">
+                <div class="fl">
+                    <a href="#"><img src="../static/images/logo.png" alt=""></a>
+                </div>
+                <div class="fl word">
+                    浙ICP备16017121号-3 浙ICP证 160773号 中国公安局标志 浙公网安备 11010502032345号 昇海网络科技（宁波）有限公司 营业执照<br>© 2019 Airbnb,Inc. All rights reserved
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Initialize Swiper轮播图 -->
+    <script type="text/javascript">
+        var swiper = new Swiper('.swiper-container', {
+            spaceBetween: 30,
+            centeredSlides: true,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+    </script>
+
+    <!-- 下拉菜单 -->
+    <script type="text/javascript">
+        var provices = [
+            ["南昌市", "抚州市", "赣州市", "吉安市"],
+            ["广州市", "深圳市", "汕头市", "惠州市"]
+        ];
+
+
+        $(function() {
+            $("#province").change(function() {
+                var cities = provices[this.value];
+                //清空城市信息；
+                $("#city").empty();
+                //遍历城市数据
+                $(cities).each(function(i, n) {
+                    $("#city").append("<option>" + n + "</option>");
+                });
+            });
+        });
+    </script>
+</body>
 
 </html>
