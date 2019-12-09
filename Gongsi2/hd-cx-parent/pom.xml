@@ -17,6 +17,7 @@
         <module>../hd-cx-ship-interface</module>
         <module>../hd-cx-navigation-interface</module>
         <module>../hd-cx-sea-service-interface</module>
+        <module>../hd-cx-oss</module>
     </modules>
 
 

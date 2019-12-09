@@ -55,7 +55,7 @@ public class SeaServiceController {
         response.setHeader("Access-Control-Allow-Origin", request.getHeader("Origin"));
         response.setHeader("Access-Control-Allow-Credentials", "true");
 
-        System.out.println("调用根据岛查询创建时间最早的6条出海服务");
+        System.out.println("调用根据"+island+"查询创建时间最早的6条出海服务");
         List<SeaServiceDto> byIslandServiceDto = seaServiceService.selectByIslandService(island);
         if(byIslandServiceDto == null){
             return new ResultBean(1,null,"没有去该岛的船");

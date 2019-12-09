@@ -29,7 +29,7 @@ body,
 }
 
 .wrapper {
-    background-image: url("../img/bj.gif");
+    background-image: url("../img/bj-login.jpg");
     background-size: 100% 100%;
     position: relative;
 }
@@ -37,11 +37,12 @@ body,
 article {
     width: 1200px;
     margin: 0 auto;
+    /* border: 1px solid #8fb4d1; */
 }
 
 article {
     width: 400px;
-    margin: 100px auto 0px auto;
+    margin: 150px auto 0px auto;
 }
 
 article h1 {
@@ -59,9 +60,9 @@ article h1 em {
 }
 
 .main {
-    padding: 40px 0px;
+    padding: 20px 0px;
     width: 100%;
-    background-color: rgba(24, 80, 137, 0.77);
+    /* background-color: #49bcf4; */
 }
 
 form {
@@ -82,7 +83,7 @@ form {
 form button {
     width: 290px;
     height: 35px;
-    background-color: red;
+    background-color: #027eba;
     color: #fff;
     border: none;
     margin-top: 15px;
@@ -95,7 +96,7 @@ footer {
     width: 100%;
     position: absolute;
     left: 0;
-    bottom: 50px;
+    bottom: 30px;
     font-size: 14px;
     color: #5593ce;
 }
@@ -127,6 +128,7 @@ footer ul li a {
 footer ul,
 footer p {
     margin: 0 auto;
+    color: black;
 }
 
 
@@ -137,41 +139,68 @@ a {
     color: black;
 }
 
+.wrapper {
+    position: relative;
+}
+
 .wrapper .main .rem input {
-    width: 28px;
-    height: 28px;
+    width: 14px;
+    height: 14px;
 }
 
 .rem {
     /* border: 1px solid red; */
     display: flex;
     align-items: center;
+    font-size: 16px;
 }
 
 .rem span {
-    height: 30px;
-    line-height: 30px;
+    height: 18px;
+    line-height: 18px;
+    padding-left: 8px;
+    font-size: 16px;
 }
 
 .rem a {
-    height: 30px;
-    line-height: 30px;
+    height: 16px;
+    line-height: 16px;
     text-decoration: none;
     padding-left: 20px;
+    font-size: 16px;
 }
 
 .cooperation {
-    margin: 15px 0;
+    margin: 15px 0px;
+    text-align: center;
 }
 
 .cooperation h3 {
-    text-align: center;
+    padding-right: 10px;
+    box-sizing: border-box;
 }
 
 .mode {
     text-align: center;
+    padding-right: 16px;
+    box-sizing: border-box;
 }
 
 .weibo {
     padding: 0 15px;
+}
+
+.logo {
+    /* border: 1px solid red; */
+    position: absolute;
+    width: 300px;
+    height: 200px;
+    bottom: 0;
+    right: 0;
+}
+
+.logo img {
+    width: 100%;
+    height: 100%;
+    z-index: 999;
 }

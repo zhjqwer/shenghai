@@ -12,7 +12,7 @@
     $(function() {
         //为按钮绑定事件
         $("#reg").click(function() {
-
+            alert(111);
             console.log(111);
             var phone = $("#phone").val();
             var password = $("#password").val();
@@ -67,7 +67,7 @@
 <body>
     <div class="wrapper">
         <article>
-            <h1><span>注册页面</span></h1>
+            <h1><span>欢迎加入XXX</span></h1>
             <div class="main">
                 <form>
                     <div class="tel">
@@ -83,9 +83,12 @@
                 </form>
             </div>
         </article>
-        <footer>
+        <div class="logo">
+            <img src="../static/img/logo.png" alt="">
+        </div>
+        <!-- <footer>
             <p>地址：浙江省宁波市鄞州区xxx 邮编：xxxxxx 电话：xxxxxxxxxxxxxx 传真：xxxxxxxxxxxxxxx</p>
-        </footer>
+        </footer> -->
     </div>
 </body>
 
